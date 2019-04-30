@@ -44,8 +44,6 @@ class CalculatorViewController: UIViewController {
         
         updateView()
         
-        
-        
         for memorySlot in memorySlots {
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onClickMemory))
             let longTapGesutureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(onLongClickMemory))
@@ -55,12 +53,9 @@ class CalculatorViewController: UIViewController {
         }
     }
 
-    
     @IBAction func onClickCalculate(_ sender: UIButton) {
         
-        guard let input = labelInput.text else {
-            return
-        }
+        guard let input = labelInput.text else { return }
         
         do {
             let result = try calculator.calculate(expression: input)
@@ -99,6 +94,7 @@ class CalculatorViewController: UIViewController {
         }
     }
     
+    // Set a new value to appropriate memory slot
     func setMemory(slot id: Int) -> Bool {
         guard let input = labelInput.text else {
             return false
@@ -113,12 +109,9 @@ class CalculatorViewController: UIViewController {
         }
     }
     
-    
-    
+    // Do calculation with current expression and set the result into labelResult
     func preCalculation() {
-        guard let input = labelInput.text else {
-            return
-        }
+        guard let input = labelInput.text else { return }
         
         do {
             let result = try calculator.calculate(expression: input)
@@ -128,11 +121,13 @@ class CalculatorViewController: UIViewController {
         }
     }
     
+    // Set a new strings to labelInput and labelResult
     func updateLabelsWith(labelResult str1: String, labelInput str2: String) {
         labelResult.text = str1
         labelInput.text = str2
     }
     
+    // Listener for Erase button
     @IBAction func onClickErase(_ sender: UIButton) {
         if let str = labelInput.text, str.count > 0 {
             labelInput.text = String(str.dropLast())
@@ -140,6 +135,7 @@ class CalculatorViewController: UIViewController {
         }
     }
     
+    // Listener for operator's buttons
     @IBAction func onClickOperator(_ sender: UIButton) {
         
         switch sender {
@@ -155,10 +151,12 @@ class CalculatorViewController: UIViewController {
         }
     }
     
+    // Listener for number's buttons
     @IBAction func onClickNumber(_ sender: UIButton) {
         append(str: String(sender.tag))
     }
     
+    // Append given string to the end of current expression
     func append(str: String) {
         
         var string = str
@@ -219,14 +217,17 @@ class CalculatorViewController: UIViewController {
         preCalculation()
     }
     
+    // Checks if the last number contains less than 1 delimiter
     func isLastNumberWell() -> Bool {
         return count(stringToCheck: labelInput.text!, symbol: ".") < 1
     }
     
+    // Returns amount of intereset symbol in given string
     func count(stringToCheck str: String, symbol: String) -> Int {
         return Array(str).filter { $0 == symbol.first! }.count
     }
     
+    // Checks if the last character is equals to one of the listed set of symbols
     func isLastEquals(string: String, set: String) -> Bool {
         
         if string.count == 0 { return false }
@@ -239,7 +240,7 @@ class CalculatorViewController: UIViewController {
         return false
     }
     
-    
+    // Update view of some buttons
     func updateView() {
         buttonOpenBrackets.layer.borderWidth = 2
         buttonOpenBrackets.layer.borderColor = #colorLiteral(red: 0.2941176471, green: 0.3098039216, blue: 0.3254901961, alpha: 0.9469445634)
@@ -259,6 +260,7 @@ class CalculatorViewController: UIViewController {
 }
 
 extension Double {
+    // Properly convert Double to String
     var stringFormat: String {
         let formatter = NumberFormatter()
         formatter.minimumFractionDigits = 0
