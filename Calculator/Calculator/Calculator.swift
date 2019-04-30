@@ -13,6 +13,7 @@ class Calculator {
     
     enum ErrorType: Error {
         case BAD_SYNTAX
+        case BAD_INPUT
     }
     
     private final let DELIMITER = "."
@@ -75,7 +76,7 @@ class Calculator {
             case "*": tmpResult *= num
             case "/":
                 guard num != 0 else {
-                    throw ErrorType.BAD_SYNTAX
+                    throw ErrorType.BAD_INPUT
                 }
                 
                 tmpResult /= num

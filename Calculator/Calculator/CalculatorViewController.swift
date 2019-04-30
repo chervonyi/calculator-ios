@@ -10,6 +10,7 @@ import UIKit
 
 class CalculatorViewController: UIViewController {
 
+    // UI components
     @IBOutlet var memorySlots: [UIButton]!
     
     @IBOutlet weak var labelResult: UILabel!
@@ -29,6 +30,9 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var buttonMinus: UIButton!
     @IBOutlet weak var buttonCalculation: UIButton!
     
+    // Logic
+    private let calculator = Calculator()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,12 +44,47 @@ class CalculatorViewController: UIViewController {
 
     
     @IBAction func onClickCalculate(_ sender: UIButton) {
-        // TODO - Calculate
+        
+        guard let input = labelInput.text else {
+            return
+        }
+        
+        do {
+            let result = try calculator.calculate(expression: input)
+        
+            updateLabelsWith(labelResult: result.stringFormat, labelInput: result.stringFormat)
+            
+        } catch Calculator.ErrorType.BAD_SYNTAX {
+            updateLabelsWith(labelResult: "Bad Syntax", labelInput: "")
+        } catch Calculator.ErrorType.BAD_INPUT {
+            updateLabelsWith(labelResult: "?", labelInput: "")
+        } catch {
+            updateLabelsWith(labelResult: "?", labelInput: "")
+        }
+    }
+
+    func preCalculation() {
+        guard let input = labelInput.text else {
+            return
+        }
+        
+        do {
+            let result = try calculator.calculate(expression: input)
+            labelResult.text = result.stringFormat
+        } catch {
+            labelResult.text = ""
+        }
+    }
+    
+    func updateLabelsWith(labelResult str1: String, labelInput str2: String) {
+        labelResult.text = str1
+        labelInput.text = str2
     }
     
     @IBAction func onClickErase(_ sender: UIButton) {
         if let str = labelInput.text, str.count > 0 {
             labelInput.text = String(str.dropLast())
+            preCalculation()
         }
     }
     
@@ -70,6 +109,7 @@ class CalculatorViewController: UIViewController {
     
     func append(str: String) {
         labelInput.text = labelInput.text! + str
+        preCalculation()
     }
     
     
@@ -88,6 +128,16 @@ class CalculatorViewController: UIViewController {
         buttonDivision.layer.cornerRadius =         buttonDivision.layer.frame.width / 2
         buttonMinus.layer.cornerRadius =            buttonMinus.layer.frame.width / 2
         buttonCalculation.layer.cornerRadius =      buttonCalculation.layer.frame.height / 2
+    }
+}
+
+extension Double {
+    var stringFormat: String {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 3
+        
+        return formatter.string(from: self as NSNumber)!
     }
 }
 
