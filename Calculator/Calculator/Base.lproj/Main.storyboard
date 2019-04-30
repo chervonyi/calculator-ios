@@ -21,32 +21,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FL4-v2-wQ2">
-                                <rect key="frame" x="0.0" y="44" width="375" height="50"/>
+                                <rect key="frame" x="10" y="44" width="355" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vks-IM-pMm">
-                                        <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vks-IM-pMm">
+                                        <rect key="frame" x="0.0" y="0.0" width="88.666666666666671" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <state key="normal" title="+">
                                             <color key="titleColor" red="0.38431372549019605" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPd-dc-sZ0">
-                                        <rect key="frame" x="93.666666666666686" y="0.0" width="94" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPd-dc-sZ0">
+                                        <rect key="frame" x="88.666666666666686" y="0.0" width="89" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <state key="normal" title="+">
                                             <color key="titleColor" red="0.38431372549999998" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m93-tx-SMI">
-                                        <rect key="frame" x="187.66666666666666" y="0.0" width="93.666666666666657" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m93-tx-SMI">
+                                        <rect key="frame" x="177.66666666666666" y="0.0" width="88.666666666666657" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <state key="normal" title="+">
                                             <color key="titleColor" red="0.38431372549999998" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBk-5B-jIy">
-                                        <rect key="frame" x="281.33333333333331" y="0.0" width="93.666666666666686" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBk-5B-jIy">
+                                        <rect key="frame" x="266.33333333333331" y="0.0" width="88.666666666666686" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <state key="normal" title="+">
                                             <color key="titleColor" red="0.38431372549999998" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -358,14 +358,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FL4-v2-wQ2" secondAttribute="trailing" id="CYp-fR-qjB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FL4-v2-wQ2" secondAttribute="trailing" constant="10" id="CYp-fR-qjB"/>
                             <constraint firstItem="FL4-v2-wQ2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Fu9-6k-3fm"/>
                             <constraint firstItem="PnA-8Z-Yaz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="HLd-6Y-5Yu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vw9-XQ-WMN" secondAttribute="trailing" constant="30" id="I9C-PS-gWr"/>
                             <constraint firstItem="PnA-8Z-Yaz" firstAttribute="top" secondItem="vw9-XQ-WMN" secondAttribute="bottom" constant="30" id="J3Y-ef-1lQ"/>
                             <constraint firstItem="lLZ-u5-Bcq" firstAttribute="top" secondItem="PnA-8Z-Yaz" secondAttribute="bottom" priority="800" constant="100" id="V6x-K7-gUy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lLZ-u5-Bcq" secondAttribute="bottom" constant="10" id="ZPN-oU-fD2"/>
-                            <constraint firstItem="FL4-v2-wQ2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aSf-r3-CWu"/>
+                            <constraint firstItem="FL4-v2-wQ2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="aSf-r3-CWu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lLZ-u5-Bcq" secondAttribute="trailing" constant="20" id="ddb-7g-fOi"/>
                             <constraint firstItem="vw9-XQ-WMN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="gBI-7f-y8M"/>
                             <constraint firstItem="vw9-XQ-WMN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FL4-v2-wQ2" secondAttribute="bottom" constant="40" id="hbi-ER-rkl"/>

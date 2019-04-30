@@ -40,6 +40,16 @@ class CalculatorViewController: UIViewController {
         buttonsNum = buttonsNum.sorted(by: {$0.tag < $1.tag})
         
         updateView()
+        
+        
+        
+        for memorySlot in memorySlots {
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onClickMemory))
+            let longTapGesutureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(onLongClickMemory))
+            
+            memorySlot.addGestureRecognizer(tapGestureRecognizer)
+            memorySlot.addGestureRecognizer(longTapGesutureRecognizer)
+        }
     }
 
     
@@ -63,6 +73,45 @@ class CalculatorViewController: UIViewController {
         }
     }
 
+    @objc func onClickMemory(sender: UITapGestureRecognizer) {
+        let tag = (sender.view?.tag)!
+        
+        if memorySlots[tag].titleLabel!.text! == "+" {
+            if setMemory(slot: tag) {
+                updateLabelsWith(labelResult: "0", labelInput: "")
+            }
+        } else if isLastEquals(string: labelInput.text!, set: "+-*/(") || labelInput.text!.count == 0 {
+            append(str: memorySlots[tag].titleLabel!.text!)
+        }
+    }
+    
+    @objc func onLongClickMemory(sender: UILongPressGestureRecognizer)  {
+        
+        if sender.state == .began {
+            let tag = (sender.view?.tag)!
+            
+            if setMemory(slot: tag) {
+                updateLabelsWith(labelResult: "0", labelInput: "")
+            }
+        }
+    }
+    
+    func setMemory(slot id: Int) -> Bool {
+        guard let input = labelInput.text else {
+            return false
+        }
+        
+        do {
+            let result = try calculator.calculate(expression: input)
+            memorySlots[id].setTitle(result.stringFormat, for: UIControlState.normal)
+            return true
+        } catch {
+            return false
+        }
+    }
+    
+    
+    
     func preCalculation() {
         guard let input = labelInput.text else {
             return
@@ -110,6 +159,10 @@ class CalculatorViewController: UIViewController {
     func append(str: String) {
         labelInput.text = labelInput.text! + str
         preCalculation()
+    }
+    
+    func isLastEquals(string: String, set: String) -> Bool {
+        return string.count != 0 ? set.contains(string.last!) : false
     }
     
     
