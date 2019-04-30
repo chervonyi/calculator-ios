@@ -187,7 +187,7 @@ class Calculator {
             let op = source.first!
             popElement()
             
-            if source.count == 0 {
+            if source.count == 0 && op != ")" {
                 throw ErrorType.BAD_SYNTAX
             }
             
@@ -200,7 +200,6 @@ class Calculator {
     func popElement() {
         source = String(source.dropFirst())
     }
-    
     
     func reset() {
         source = ""

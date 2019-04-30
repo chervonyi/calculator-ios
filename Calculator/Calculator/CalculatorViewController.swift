@@ -33,6 +33,9 @@ class CalculatorViewController: UIViewController {
     // Logic
     private let calculator = Calculator()
     
+    // Constants
+    private let MAX_SYMBOLS = 30
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -157,12 +160,83 @@ class CalculatorViewController: UIViewController {
     }
     
     func append(str: String) {
-        labelInput.text = labelInput.text! + str
+        
+        var string = str
+        
+        var input = labelInput.text!
+        
+        // Check on max symbols in labelInput
+        if input.count >= MAX_SYMBOLS {
+            return
+        }
+        
+        // Check on empty string of labelInput
+        if input.count == 0 && "+-*/%)".contains(string) {
+            return
+        }
+        
+        // Check if pointer does not make error
+        if string == "." {
+            if isLastEquals(string: input, set: "+-*/%(") || input.count == 0 {
+                input += "0"
+            } else if !isLastNumberWell() || isLastEquals(string: input, set: ")") {
+                return;
+            }
+        }
+        
+        // Check on main operation symbols
+        if "+-*/%".contains(string) {
+            if isLastEquals(string: input, set: "+-*/%") {
+                // Replace last operator with a new one
+                input = String(input.dropLast())
+            } else if isLastEquals(string: input, set: ".") {
+                return
+            }
+        }
+        
+        // Check on "0" symbol
+        if string == "0" {
+            if input.count == 0 || isLastEquals(string: input, set: "+-*/%(") {
+                string += "."
+            }
+        }
+            
+        // Conditions for brackets
+        if string == "(" {
+            if input.count == 0 {
+                labelInput.text = input + string
+                return
+            } else if !isLastEquals(string: input, set: "+-*/%(") {
+                return
+            }
+        } else if string == ")" {
+            if isLastEquals(string: input, set: "+-*/%.(") || count(stringToCheck: input, symbol: ")") >= count(stringToCheck: input, symbol: "(") {
+                return
+            }
+        }
+        
+        labelInput.text = input + string
         preCalculation()
     }
     
+    func isLastNumberWell() -> Bool {
+        return count(stringToCheck: labelInput.text!, symbol: ".") < 1
+    }
+    
+    func count(stringToCheck str: String, symbol: String) -> Int {
+        return Array(str).filter { $0 == symbol.first! }.count
+    }
+    
     func isLastEquals(string: String, set: String) -> Bool {
-        return string.count != 0 ? set.contains(string.last!) : false
+        
+        if string.count == 0 { return false }
+        
+        for char in set {
+            if string.last! == char {
+                return true
+            }
+        }
+        return false
     }
     
     
