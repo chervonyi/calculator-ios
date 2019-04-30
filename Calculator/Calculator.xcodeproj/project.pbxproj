@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DAC7E8CD2278A917008FCC0C /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E8CC2278A917008FCC0C /* Calculator.swift */; };
+		DAC7E8CF2278A928008FCC0C /* Lexem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E8CE2278A928008FCC0C /* Lexem.swift */; };
 		DADEA3312277721500DFDA85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADEA3302277721500DFDA85 /* AppDelegate.swift */; };
 		DADEA3332277721500DFDA85 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADEA3322277721500DFDA85 /* CalculatorViewController.swift */; };
 		DADEA3362277721500DFDA85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DADEA3342277721500DFDA85 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DAC7E8CC2278A917008FCC0C /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		DAC7E8CE2278A928008FCC0C /* Lexem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lexem.swift; sourceTree = "<group>"; };
 		DADEA32D2277721500DFDA85 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADEA3302277721500DFDA85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DADEA3322277721500DFDA85 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
@@ -77,10 +81,12 @@
 		DADEA32F2277721500DFDA85 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				DAC7E8CE2278A928008FCC0C /* Lexem.swift */,
 				DADEA3502277734700DFDA85 /* Supporting Files */,
 				DADEA3322277721500DFDA85 /* CalculatorViewController.swift */,
 				DADEA3342277721500DFDA85 /* Main.storyboard */,
 				DADEA33C2277721500DFDA85 /* Info.plist */,
+				DAC7E8CC2278A917008FCC0C /* Calculator.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -208,7 +214,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DADEA3332277721500DFDA85 /* CalculatorViewController.swift in Sources */,
+				DAC7E8CF2278A928008FCC0C /* Lexem.swift in Sources */,
 				DADEA3312277721500DFDA85 /* AppDelegate.swift in Sources */,
+				DAC7E8CD2278A917008FCC0C /* Calculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
